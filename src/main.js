@@ -1,4 +1,6 @@
 import "./css/index.css";
+import IMask from 'imask';
+
 
 const ccBgColor01 = document.querySelector(
   ".cc-bg svg > g g:nth-child(1) path"
@@ -9,7 +11,11 @@ const ccBgColor02 = document.querySelector(
 );
 const ccLogo = document.querySelector('.cc-logo span:nth-child(2) img')
 
-
+const securityCode = document.querySelector('#security-code')
+const securityCodePatten = {
+  mask:'0000'
+}
+  const securityCodeMaked = IMask(securityCode,securityCodePatten)
 
 function setCardType(type){
     const colors = {
@@ -22,4 +28,3 @@ function setCardType(type){
 
     ccLogo.setAttribute('src',`cc-${type}.svg`)
 }
-setCardType('visa')
